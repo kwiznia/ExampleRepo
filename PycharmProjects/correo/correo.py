@@ -16,7 +16,7 @@ class correo():
         user.send_keys("alvarorm89@gmail.com")
 
     def writepswd(self):
-        self.driver.find_element_by_xpath("//*[@id='Passwd']").send_keys("widowmaker")
+        self.driver.find_element_by_xpath("//*[@id='Passwd']").send_keys("********")
 
     def pressbutton(self):
         self.driver.find_element_by_xpath("/html/body/div/div[2]/div[2]/form/input[16]").click()
