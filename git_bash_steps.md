@@ -17,6 +17,7 @@ Luego tengo que hacer el pull y push de la siguiente manera
 ![image18](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image18.jpg)
 
 A continuación creamos una nueva rama:
+
 ![image19](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image19.jpg)
 
 Como en esta rama no quiero agregar ningún archivo, solo quiero que se cree con el readme.md, directamente hago el push de dicha rama de la siguiente forma (no es necesario hacer el pull): 
