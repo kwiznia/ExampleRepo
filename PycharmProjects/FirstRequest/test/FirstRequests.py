@@ -20,3 +20,4 @@ def use_the_post_method(step):
     print r.text
     with url.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=London') as f:
         print(f.read(10))
+

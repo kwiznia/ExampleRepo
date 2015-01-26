@@ -19,3 +19,4 @@ def factorial(number):
         return 1
     else:
         return number
+

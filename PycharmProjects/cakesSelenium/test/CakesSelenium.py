@@ -31,3 +31,4 @@ def press_the_bottom(step):
     addToCartButton = driver.find_element_by_xpath("/html/body/form/div[5]/div/div/div[4]/div/div[2]/table[2]/tbody/tr/td/a/span").click()
     #driver.back()
     driver.close()
+

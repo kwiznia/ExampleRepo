@@ -16,3 +16,4 @@ Scenario: Factorial of 2
     Give I have the number 2
     When I compute its factorial
     Then I see the number 2
+

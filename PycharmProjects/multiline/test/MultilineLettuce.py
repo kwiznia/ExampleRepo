@@ -21,3 +21,4 @@ def i_ask_to_have_the_string_split_into_lines(step):
 def exemplify_world(step, value):
     world.some_variable = "yay!"
     assert world.some_variable == value
+

@@ -12,3 +12,4 @@ def step_impl(context):
 @step('lettuce will test it automatically')
 def step_impl(context):
     assert True is True
+

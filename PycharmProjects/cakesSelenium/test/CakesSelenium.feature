@@ -5,3 +5,4 @@ Scenario: Buy a cake
     When I fill the text field
     and I select element from the box
     Then I press the bottom
+

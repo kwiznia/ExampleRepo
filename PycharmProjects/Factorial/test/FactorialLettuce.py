@@ -46,3 +46,4 @@ def setup_each_scenario(scenario):
 @after.each_scenario
 def teardown_some_scenario(scenario):
     print "the scenario %r just has run " % scenario.name
+

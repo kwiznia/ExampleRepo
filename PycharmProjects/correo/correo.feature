@@ -11,4 +11,3 @@ Scenario: Abrir el correo satisfactoriamente
 Examples:
 | 'button' |
 | 'button' |
-

@@ -11,3 +11,4 @@ def go_to_URL(step):
     element.send_keys("some text")
     assert "No results found." not in driver.page_source #if the page doesnt exist, then send a message
     #driver.close()
+

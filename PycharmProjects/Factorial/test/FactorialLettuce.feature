@@ -27,3 +27,4 @@ Scenario: Factorial of 4
     Given I have the number 4
     When I compute its factorial
     Then I see the number 24
+

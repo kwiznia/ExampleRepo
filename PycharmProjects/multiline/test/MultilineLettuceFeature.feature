@@ -17,3 +17,4 @@ Scenario: Split small-ish string
 
 Scenario: check variable
     When I exemplify "world" by seeing that some variable contains "yay!"
+

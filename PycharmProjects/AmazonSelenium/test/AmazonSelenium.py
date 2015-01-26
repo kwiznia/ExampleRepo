@@ -12,3 +12,4 @@ def go_to_URL(step):
     ActionChains(driver).drag_and_drop(element, target).perform()
     button = driver.find_element_by_xpath("/html/body/header/div/div[2]/div[2]/div[3]/form/div/input").click()
     assert "No results found." not in driver.page_source
+
