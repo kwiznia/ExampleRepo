@@ -43,4 +43,4 @@ Siendo que la rama projects es la única que contiene los proyectos (imagen 1), 
 
 ![image27](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image27.jpg)
 ![image28](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image28.jpg)
-![image29](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image29.jpg)
+
