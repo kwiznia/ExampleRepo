@@ -31,12 +31,14 @@ Y agregamos todos los ficheros necesarios
 
 ![image23](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image23.jpg)
 
-Finalmente hacemos commit para guardar los cambios generados y una vez hecho eso, hago push para subir esa rama al repositorio remoto
+Finalmente hacemos commit para guardar los cambios generados
 ![image29](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image29.jpg)
+
+Una vez hecho eso, hago push para subir esa rama al repositorio remoto
 ![image24](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image24.jpg)
-![image25](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image25.jpg)
 
 En este caso podemos ver cómo están creadas las tres ramas:
+![image25](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image25.jpg)
 ![image26](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image26.jpg)
 
 Siendo que la rama projects es la única que contiene los proyectos (imagen 1), mientras que las ramas develop y master tienen únicamente un readme.md (imagen 2).
