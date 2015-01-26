@@ -192,4 +192,4 @@ La ventaja principal de utilizar esta librería, es que hay una serie de steps y
 Diferencias entre Selenium y lettuce_webdriver
 No existen grandes diferencias entre utilizar uno u otro, pero sí que hay una diferencia especialmente importante a la hora de utilizar uno u otro. La siguiente tabla explicará las diferencias entre uno y otro y sus beneficios.
 
-![image11](kwiznia.github.com/ExampleRepo/img/image11.jpg)
+![image11](https://github.com/kwiznia/ExampleRepo/blob/projects/image11.jpg)
