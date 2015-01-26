@@ -28,10 +28,11 @@ Ahora creas la rama contenedora de los proyectos de la siguiente forma:
 ![image22](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image22.jpg)
 
 Y agregamos todos los ficheros necesarios
+
 ![image23](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image23.jpg)
-![image29](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image29.jpg)
 
 Finalmente hacemos commit para guardar los cambios generados y una vez hecho eso, hago push para subir esa rama al repositorio remoto
+![image29](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image29.jpg)
 ![image24](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image24.jpg)
 ![image25](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image25.jpg)
 
