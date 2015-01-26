@@ -25,4 +25,3 @@ def press_sign_in_button(self, expected):
 def check_button(self, expected):
     assert str(correo.checkbutton()) != expected, "You didnt press the right button"
     correo.closepage()
-

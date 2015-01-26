@@ -28,4 +28,3 @@ class correo():
 
     def closepage(self):
         self.driver.close()
-
