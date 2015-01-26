@@ -42,6 +42,7 @@ En este caso podemos ver cómo están creadas las tres ramas:
 
 Siendo que la rama projects es la única que contiene los proyectos
 ![image26](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image26.jpg) 
+
 Mientras que las ramas develop y master tienen únicamente un readme.md.
 ![image27](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image27.jpg) 
 ![image28](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image28.jpg) 
