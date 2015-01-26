@@ -125,63 +125,63 @@ Steps incluidos en la librería
 Los siguientes son algunos de los archivos que coinciden con los steps ya implementados (y que no hay necesidad de que conozcamos cual es su implementación):
 
 # urls
-I visit "http://google.com/"
-I go to "http://google.com/"
+	o I visit "http://google.com/"
+	o I go to "http://google.com/"
 
 # links
-I click "Next page"
-I should see a link with the url "http://foobar.com/"
-I should see a link to "Google" with the url "http://google.com/"
-I should see a link that contains the text "Foobar" and the url "http://foobar.com/"
+	o I click "Next page"
+	o I should see a link with the url "http://foobar.com/"
+	o I should see a link to "Google" with the url "http://google.com/"
+	o I should see a link that contains the text "Foobar" and the url "http://foobar.com/"
 
 # general
-I should see "Page Content"
-I see "Page Content"
-I should see "Page Content" within 4 seconds
-I should not see "Foobar"
-I should be at "http://foobar.com/"
-I should see an element with id of "http://bar.com/"
-I should see an element with id of "http://bar.com/" within 2 seconds
-I should not see an element with id of "http://bar.com/"
-The element with id of "cs_PageModeContainer" contains "Read"
-The element with id of "cs_BigDiv" does not contain "Write"
+	o I should see "Page Content"
+	o I see "Page Content"
+	o I should see "Page Content" within 4 seconds
+	o I should not see "Foobar"
+	o I should be at "http://foobar.com/"
+	o I should see an element with id of "http://bar.com/"
+	o I should see an element with id of "http://bar.com/" within 2 seconds
+	o I should not see an element with id of "http://bar.com/"
+	o The element with id of "cs_PageModeContainer" contains "Read"
+	o The element with id of "cs_BigDiv" does not contain "Write"
 
 # browser
-The browser's URL should be "http://bar.com/"
-The browser's URL should contain "foo.com"
-The browser's URL should not contain "bar.com"
+	o The browser's URL should be "http://bar.com/"
+	o The browser's URL should contain "foo.com"
+	o The browser's URL should not contain "bar.com"
 
 # forms
-I should see a form that goes to "http://bar.com/submit.html"
-I press "Submit"
+	o I should see a form that goes to "http://bar.com/submit.html"
+	o I press "Submit"
 
 # checkboxes
-I check "I have a car"
-I uncheck "I have a bus"
-The "I have a car" checkbox should be checked
-The "I have a bus" checkbox should not be checked
+	o I check "I have a car"
+	o I uncheck "I have a bus"
+	o The "I have a car" checkbox should be checked
+	o The "I have a bus" checkbox should not be checked
 
 # select
-I select "Volvo" from "Car Choices"
-I select the following from "Car Choices":
-    """
-    Volvo
-    Saab
-    """
-The "Volvo" option from "Car Choices" should be selected
-The following options from "Car Choices" should be selected:
-    """
-    Volvo
-    Saab
-    """
+	o I select "Volvo" from "Car Choices"
+	o I select the following from "Car Choices":
+		"""
+		Volvo
+		Saab
+		"""
+	o The "Volvo" option from "Car Choices" should be selected
+	o The following options from "Car Choices" should be selected:
+		"""
+		Volvo
+		Saab
+		"""
 
 # radio buttons
-I choose "Foobar"
-The "Foobar" option should be chosen
-The "Bar" option should not be chosen
+	o I choose "Foobar"
+	o The "Foobar" option should be chosen
+	o The "Bar" option should not be chosen
 
 # text entry fields (text, textarea, password)
-I fill in "Username" with "Smith"
+	o I fill in "Username" with "Smith"
 
 Cabe destacar que estos deben estar escritos en ingles, y no en otro idioma si no, no encuentra la coincidencia. 
 
