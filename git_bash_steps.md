@@ -40,8 +40,9 @@ Una vez hecho eso, hago push para subir esa rama al repositorio remoto
 En este caso podemos ver cómo están creadas las tres ramas:
 ![image25](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image25.jpg)
 
-Siendo que la rama projects es la única que contiene los proyectos (imagen 1), mientras que las ramas develop y master tienen únicamente un readme.md (imagen 2).
-![image26](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image26.jpg) (imagen1)
-![image27](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image27.jpg) (imagen2)
-![image28](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image28.jpg) (imagen2)
+Siendo que la rama projects es la única que contiene los proyectos
+![image26](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image26.jpg) 
+Mientras que las ramas develop y master tienen únicamente un readme.md.
+![image27](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image27.jpg) 
+![image28](https://github.com/kwiznia/ExampleRepo/blob/projects/images/image28.jpg) 
 
