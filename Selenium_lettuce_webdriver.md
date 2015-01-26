@@ -20,16 +20,16 @@ Ejemplo:
 Supongamos la web http://www.cheesecake.com/. A continuación realizaremos un testeo de alguna de las funciones posibles que podemos implementar con esta herramienta.
 Lo primero que tenemos que hacer es crear un proyecto y dentro un archivo .feature y otro .py como muestra la siguiente imagen:
 
-![image1](https://github.com/kwiznia/ExampleRepo/blob/projects/image0.jpg)
+![image0](https://github.com/kwiznia/ExampleRepo/blob/projects/image0.jpg)
 
 Una vez hecho esto, procederemos a crear el feature especificando las acciones (de manera más clara posible, con lo que queramos que haga nuestro test). En cuyo caso, el archivo puede ser de la siguiente manera: 
 
-![image2](kwiznia.github.com/ExampleRepo/img/image2.jpg)
+![image1](https://github.com/kwiznia/ExampleRepo/blob/projects/image1.jpg)
 
 Una vez hecho esto, procederemos a completar el archivo .py que contendrá tantos steps como líneas tenga el scenario.
 El código de los steps podría ser de la siguiente manera:
 
-![image3](kwiznia.github.com/ExampleRepo/img/image3.jpg)
+![image2](https://github.com/kwiznia/ExampleRepo/blob/projects/image2.jpg)
 
 Lo primero que tenemos que hacer es importar todas las librerías de lettuce y de Selenium, el WebDriver.
 A continuación, pondremos como variable global el driver, que es la pagina a la cual le voy a realizar el testeo. Esta variable la pongo como global, ya que la utilizaré en todos los steps. Si no la pusiese como variable global, tendría que inicializarla en cada uno de los steps y se abriría una ventana nueva cada vez que accedo a un step.
@@ -50,19 +50,19 @@ select = driver.find_element_by_xpath("/html/body/form/div[5]/div/div/div[4]/div
 Resultados obtenidos:
 Después del primer step:
 
-![image4](kwiznia.github.com/ExampleRepo/img/image4.jpg)
+![image3](https://github.com/kwiznia/ExampleRepo/blob/projects/image3.jpg)
 
 Después del segundo step:
 
-![image5](kwiznia.github.com/ExampleRepo/img/image5.jpg)
+![image4](https://github.com/kwiznia/ExampleRepo/blob/projects/image4.jpg)
 
 Después del tercer step:
 
-![image6](kwiznia.github.com/ExampleRepo/img/image6.jpg)
+![image5](https://github.com/kwiznia/ExampleRepo/blob/projects/image5.jpg)
 
 Después del último step:
 
-![image7](kwiznia.github.com/ExampleRepo/img/image7.jpg)
+![image6](https://github.com/kwiznia/ExampleRepo/blob/projects/image6.jpg)
 
 Otras funcionalidades:
 Además de todo esto, que es lo básico, nos interesa saber que otras funcionalidades tiene Selenium. Entre ellas nos encontramos:
@@ -70,7 +70,7 @@ Además de todo esto, que es lo básico, nos interesa saber que otras funcionali
 		Para explicar esto, lo haremos mediante el ejemplo de www.amazon.co.uk.
 		Al igual que antes creamos los .feature correspondientes al igual que los .py con los steps necesarios. 
 		Para realizar el drag and drop se hace de la siguiente manera:
-			![image8](kwiznia.github.com/ExampleRepo/img/image8.jpg)
+			![image7](https://github.com/kwiznia/ExampleRepo/blob/projects/image7.jpg)
 			La primera línea selecciona el objeto que desea mover.
 			En la segunda línea, selecciona el xpath del lugar donde va a dejarse ese objeto
 			En la tercera línea realizo el drag and drop de esos dos objetos. 
@@ -94,7 +94,7 @@ Además de todo esto, que es lo básico, nos interesa saber que otras funcionali
 		
 Excepciones:
 Para poder utilizar alguna excepción es necesario importarla con la siguiente línea de código: 
-![image9](kwiznia.github.com/ExampleRepo/img/image9.jpg)
+![image8](https://github.com/kwiznia/ExampleRepo/blob/projects/image8.jpg)
 
 Dentro de los [] hay que poner el nombre de la excepción. Si queremos importar más de una excepción hemos de hacerlo mediante comas. Las excepciones que podemos manejar son las siguientes:
 	o	ElementNotSelectableException: has intentado seleccionar un elemento que no puede seleccionarse.
@@ -114,11 +114,11 @@ Es necesario tener instaladas las librerías correspondientes tanto de lettuce c
 Utilidad
 Cuando creamos un scenario, se hace como en cualquier archivo de lettuce, pero esta librería te permite escribir escenarios, sin necesidad de implementar cada uno de los steps ya que estos, ya vienen implementados. Por ejemplo, en el caso de que quiera rellenar un formulario de una página podría tener el siguiente archivo .feature:
 
-![image10](kwiznia.github.com/ExampleRepo/img/image10.jpg)
+![image9](https://github.com/kwiznia/ExampleRepo/blob/projects/image9.jpg)
 
 Y el archivo de steps sería el siguiente:
 
-![image11](kwiznia.github.com/ExampleRepo/img/image11.jpg)
+![image10](https://github.com/kwiznia/ExampleRepo/blob/projects/image10.jpg)
 
 Esto quiere decir, que dicha librería tiene una serie de steps ya implementados. Esto hace que nuestro código sea mucho más compacto y evitamos la repetición de código entre un test y otro.  Dicho esto, cabe destacar que dicha librería tiene una serie de steps ya implementados (además de los mencionados en el ejemplo anterior). 
 Steps incluidos en la librería
@@ -192,4 +192,4 @@ La ventaja principal de utilizar esta librería, es que hay una serie de steps y
 Diferencias entre Selenium y lettuce_webdriver
 No existen grandes diferencias entre utilizar uno u otro, pero sí que hay una diferencia especialmente importante a la hora de utilizar uno u otro. La siguiente tabla explicará las diferencias entre uno y otro y sus beneficios.
 
-![image12](kwiznia.github.com/ExampleRepo/img/image12.jpg)
+![image11](kwiznia.github.com/ExampleRepo/img/image11.jpg)
