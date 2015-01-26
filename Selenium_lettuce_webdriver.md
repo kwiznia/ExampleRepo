@@ -20,7 +20,7 @@ Ejemplo:
 Supongamos la web http://www.cheesecake.com/. A continuación realizaremos un testeo de alguna de las funciones posibles que podemos implementar con esta herramienta.
 Lo primero que tenemos que hacer es crear un proyecto y dentro un archivo .feature y otro .py como muestra la siguiente imagen:
 
-![image1](kwiznia.github.com/ExampleRepo/img/image1.jpg)
+![image1](https://github.com/kwiznia/ExampleRepo/blob/projects/image0.jpg)
 
 Una vez hecho esto, procederemos a crear el feature especificando las acciones (de manera más clara posible, con lo que queramos que haga nuestro test). En cuyo caso, el archivo puede ser de la siguiente manera: 
 
