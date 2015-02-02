@@ -9,5 +9,3 @@ class weather():
 
     def gettemperature(self):
         print(self.openpage().text)
-
-		
