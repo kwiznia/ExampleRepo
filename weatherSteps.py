@@ -13,5 +13,3 @@ def accessUrl(self):
 @step(" I get the temperature in centigrade")
 def getTemperature(self):
    assert_is_none(weather.gettemperature(), "The weather information is empty")
-
-
