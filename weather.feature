@@ -11,4 +11,3 @@ Scenario: Main Page works
 Examples:
 | 'London' |
 
-s
