@@ -6,6 +6,3 @@ Feature: Weather temperature
 Scenario: Main Page works
     Given the service URL
     Then I get the temperature in centigrade
-
-
-
