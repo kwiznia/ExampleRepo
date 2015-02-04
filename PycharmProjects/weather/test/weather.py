@@ -1,12 +1,20 @@
 __author__ = 'kwiznia'
 import requests
+from lettuce import world
 
 class weather():
 
-    def openpage(self):
-        r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk')
-        return r
+    def getWeather(self, url):
+        world.url = url
+        world.url = requests.get(url)
+        return world.url
 
-    def gettemperature(self):
-        print(self.openpage().text)
-   
+    def getCity(self, city):
+        c = city
+        return c
+
+    def openpage(self, url):
+        return world.url.status_code
+
+    def gettemperature(self, url):
+        print(world.url.text)
