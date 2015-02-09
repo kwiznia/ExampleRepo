@@ -72,3 +72,4 @@ def get_temperature_by_latlong(self):
     temperature = world.page_info_by_latlon[value+7:value+13]
     temperature_centigrade = (float(temperature) - 32) * 5/9
     assert_equals(format(temperature_centigrade, '.2f'), "131.63"), "that's not the right temperature"
+	

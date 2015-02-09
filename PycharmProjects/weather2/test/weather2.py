@@ -13,3 +13,4 @@ class weather2():
         world.url = url
         world.url = requests.get(url)
         return world.url.text
+		
