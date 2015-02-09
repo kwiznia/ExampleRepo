@@ -28,3 +28,4 @@ Scenario: Check if the temperature is correct given the latitude and longitude
     And the latitude is 35 and the longitude 139
     When I ask for weather information by latitude and longitude
     Then I get the temperature in centigrade look by latitude and longitude
+
