@@ -34,7 +34,7 @@ def check_city_and_country_are_correct(self):
 
 @step("I check if the status code of the page look by city and country is 200")
 def check_status_code(self):
-    assert_equals(world.status_code, 200), "page not found"
+    assert_equals(world.response.status_code, 200), "page not found"
 
 
 @step("the latitude is (40|35|41.3|53.2) and the longitude (-3.7|139|2.1|13.3)")
@@ -60,7 +60,7 @@ def check_lat_and_long_are_correct(self):
 
 @step("I check if the status code of the page look by latitude and longitude is 200")
 def check_status_code(self):
-    assert_equals(world.status_code, 200), "page not found"
+    assert_equals(world.response.status_code, 200), "page not found"
 
 
 @step("I ask for weather information by city and country")
