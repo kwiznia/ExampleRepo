@@ -26,10 +26,10 @@ def ask_for_city_and_country(self):
 
 @step("I check if the city and country are correct")
 def check_city_and_country_are_correct(self):
-    world.sys = world.page_info['sys']
-    assert world.sys != ""
+    sys = world.page_info['sys']
+    assert sys != ""
     assert_in(world.page_info['name'], ["Madrid", "London", "Barcelona", "Berlin"]), "Empty or wrong city name"
-    assert_in(world.sys['country'], ["GB", "ES", "Germany"]), "Empty or wrong country name"
+    assert_in(sys['country'], ["GB", "ES", "Germany"]), "Empty or wrong country name"
 
 
 @step("I check if the status code of the page look by city and country is 200")
@@ -51,11 +51,11 @@ def ask_for_lat_and_long(self):
 
 @step("I check if the latitude and longitude are correct")
 def check_lat_and_long_are_correct(self):
-    world.latlon = world.page_info['coord']
-    assert world.latlon['lon'] != ""
-    assert world.latlon['lat'] != ""
-    assert_in(world.latlon['lon'], [-3.7, 139, 2.1, 13.3]), "Empty or wrong longitude"
-    assert_in(world.latlon['lat'], [40, 35, 41.3, 52.5]), "Empty or wrong latitude"
+    latlon = world.page_info['coord']
+    assert latlon['lon'] != ""
+    assert latlon['lat'] != ""
+    assert_in(latlon['lon'], [-3.7, 139, 2.1, 13.3]), "Empty or wrong longitude"
+    assert_in(latlon['lat'], [40, 35, 41.3, 52.5]), "Empty or wrong latitude"
 
 @step("I check if the status code of the page look by latitude and longitude is 200")
 def check_status_code(self):
