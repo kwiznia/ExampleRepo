@@ -11,65 +11,79 @@ def access_url(self, expectedUrl):
     world.expectedUrl = expectedUrl
     assert_regexp_matches(world.expectedUrl, '^http'), "The URL is empty"
 
-@step("the city is (.*) and the country (.*)")
-def check_city_and_country(self, expectedCity, expectedCountry):
+
+@step("the city is (Madrid|London|Barcelona|Berlin) and the country (UK|ES|Germany)")
+def city_and_country(self, expectedCity, expectedCountry):
     world.expectedCity = expectedCity
     world.expectedCountry = expectedCountry
 
+
 @step("I ask for the city and country name")
-def page_information_by_city(self):
+def ask_for_city_and_country(self):
     world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
-    world.page_code_city = weather2.getStatus_code(world.url)
+    world.page_info = weather2.getInformation(world.url)
+
 
 @step("I check if the city and country are correct")
-def check_city_and_country_values(self):
-    assert_in(world.expectedCity, ["Madrid", "London", "Barcelona", "Berlin"]), "Empty or wrong city name"
-    assert_in(world.expectedCountry, ["UK", "ES", "Germany"]), "Empty or wrong country name"
+def check_city_and_country_are_correct(self):
+    world.sys = world.page_info['sys']
+    assert world.sys != ""
+    assert_in(world.page_info['name'], ["Madrid", "London", "Barcelona", "Berlin"]), "Empty or wrong city name"
+    assert_in(world.sys['country'], ["GB", "ES", "Germany"]), "Empty or wrong country name"
+
 
 @step("I check if the status code of the page look by city and country is 200")
-def get_page_code(self):
-    assert_equals(world.page_code_city, 200), "page not found"
+def check_status_code(self):
+    assert_equals(world.page_info['cod'], 200), "page not found"
 
-@step("the latitude is (.*) and the longitude (.*)")
+
+@step("the latitude is (40|35|41.3|53.2) and the longitude (-3.7|139|2.1|13.3)")
 def check_lat_and_long(self, expectedLatitude, expectedLongitude):
     world.expectedLatitude = expectedLatitude
     world.expectedLongitude = expectedLongitude
 
+
 @step("I ask for the latitude and longitude")
-def page_information_latlong(self):
+def ask_for_lat_and_long(self):
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    world.page_code_city = weather2.getStatus_code(world.url)
+    world.page_info = weather2.getInformation(world.url)
+
 
 @step("I check if the latitude and longitude are correct")
-def check_lat_and_long_values(self):
-    assert_in(world.expectedLatitude, ["40", "35", "41.3", "52.5"]), "Empty or wrong latitude"
-    assert_in(world.expectedLongitude, ["-3.7", "139", "2.1", "13.3"]), "Empty or wrong longitude"
+def check_lat_and_long_are_correct(self):
+    world.latlon = world.page_info['coord']
+    assert world.latlon['lon'] != ""
+    assert world.latlon['lat'] != ""
+    assert_in(world.latlon['lon'], [-3.7, 139, 2.1, 13.3]), "Empty or wrong longitude"
+    assert_in(world.latlon['lat'], [40, 35, 41.3, 52.5]), "Empty or wrong latitude"
 
 @step("I check if the status code of the page look by latitude and longitude is 200")
-def get_page_code(self):
-    assert_equals(world.page_code_city, 200), "page not found"
+def check_status_code(self):
+    assert_equals(world.page_info['cod'], 200), "page not found"
+
 
 @step("I ask for weather information by city and country")
-def page_information_by_city(self):
+def ask_for_weather_information_by_city(self):
     world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
     world.page_info_by_country = weather2.getInformation(world.url)
 
-@step("I get the temperature in centigrade look by city and country")
+
+@step("I get the temperature look by city and country")
 def get_temperature_by_city(self):
-    value = world.page_info_by_country.find('"temp":')
-    temperature = world.page_info_by_country[value+7:value+13]
-    temperatuce_centigrades = (float(temperature) - 32) * 5/9
-    assert_equals(format(temperatuce_centigrades, '.2f'), "138.46"), "that's not the right temperature"
+    temperature = world.page_info_by_country['main']
+    temperatuce_farenhait = temperature['temp']
+    assert temperatuce_farenhait != ""
+
 
 @step("I ask for weather information by latitude and longitude")
 def page_information_by_latlong(self):
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
     world.page_info_by_latlon = weather2.getInformation(world.url)
 
-@step("I get the temperature in centigrade look by latitude and longitude")
+
+@step("I get the temperature look by latitude and longitude")
 def get_temperature_by_latlong(self):
-    value = world.page_info_by_latlon.find('"temp":')
-    temperature = world.page_info_by_latlon[value+7:value+13]
-    temperature_centigrade = (float(temperature) - 32) * 5/9
-    assert_equals(format(temperature_centigrade, '.2f'), "131.63"), "that's not the right temperature"
+    temperature = world.page_info_by_latlon['main']
+    temperatuce_farenhait = temperature['temp']
+    assert temperatuce_farenhait != ""
 	
