@@ -5,14 +5,13 @@ import json
 
 class weather2():
 
-    """
-   def getStatus_code(self, url):
+    def getStatus_code(self, url):
         world.url = url
-        result = requests.get(url)
-        return result.status_code
-    """
+        world.url = requests.get(url)
+        return world.url.status_code
 
     def getInformation(self, url):
         world.url = url
-        result = requests.get(url)
-        return result.json()
+        world.url = requests.get(url)
+        return world.url.text
+		
