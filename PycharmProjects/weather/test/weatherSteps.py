@@ -9,18 +9,28 @@ weather = weather()
 @step("I access the url with (.*)")
 def accessUrl(self, expectedUrl):
     world.expectedUrl = expectedUrl
-    assert_not_equals(weather.getWeather(world.expectedUrl), None), "The page is empty"
+    assert_regexp_matches(world.expectedUrl, '^http'), "The URL is empty"
 
-@step("And the city with (.*)")
-def cityname(self, expectedCity):
+@step("And the city is (.*) and the country (.*)")
+def cityname(self, expectedCity, expectedCountry):
     world.expectedCity = expectedCity
-    assert_not_equals(weather.getCity(expectedCity), None), "Empty city name"
+    world.expectedCountry = expectedCountry
+    assert_in(expectedCity, ["Madrid", "London", "Barcelona", "Berlin"]), "Empty or wrong city name"
+    assert_in(expectedCountry, ["UK", "Spain", "Germany"]), "Empty or wrong country name"
 
-@step("I ask for weather information")
+@step("And the latitude is (.*) and the longitude (.*)")
+def cityname(self, expectedLatitude, expectedLongitude):
+    world.expectedLatitude = expectedLatitude
+    world.expectedLongitude = expectedLongitude
+    assert_in(expectedLatitude, ["40", "35", "41.3", "52.5"]), "Empty or wrong latitude"
+    assert_in(expectedLongitude, ["-3.7", "139", "2.1", "13.3"]), "Empty or wrong longitude"
+
+@step("I ask for page information")
 def getweatherinformation(self):
-    assert_equals(weather.openpage(world.expectedUrl), 200), "page not found"
-    #print(weather.openpage(world.expectedUrl))
+    world.url = world.expectedUrl + "?" + world.expectedCity + "," + world.expectedCountry
+    world.status_code = weather.getStatus_code(world.url)
 
-@step("I get the temperature in centigrade")
+@step("I check if the page is ok")
 def getweathertemperature(self):
-    assert_is_none(weather.gettemperature(world.expectedUrl), "The weather information is empty")
+    assert_equals(world.status_code, 200), "page not found"
+    #compruebo que lo que me devolvio el step anterior esta bien

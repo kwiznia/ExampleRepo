@@ -12,7 +12,7 @@ def access_url(self, expectedUrl):
     assert_regexp_matches(world.expectedUrl, '^http'), "The URL is empty"
 
 
-@step("the city is (Madrid|London|Barcelona|Berlin) and the country (UK|ES|Germany)")
+@step("the city is (Madrid|London|Barcelona|Berlin) and the country (GB|ES|Germany)")
 def city_and_country(self, expectedCity, expectedCountry):
     world.expectedCity = expectedCity
     world.expectedCountry = expectedCountry
@@ -28,8 +28,8 @@ def ask_for_city_and_country(self):
 def check_city_and_country_are_correct(self):
     sys = world.page_info['sys']
     assert sys != ""
-    assert_in(world.page_info['name'], ["Madrid", "London", "Barcelona", "Berlin"]), "Empty or wrong city name"
-    assert_in(sys['country'], ["GB", "ES", "Germany"]), "Empty or wrong country name"
+    assert world.expectedCity in world.page_info['name']
+    assert world.expectedCountry in sys['country']
 
 
 @step("I check if the status code of the page look by city and country is 200")
@@ -54,8 +54,9 @@ def check_lat_and_long_are_correct(self):
     latlon = world.page_info['coord']
     assert latlon['lon'] != ""
     assert latlon['lat'] != ""
-    assert_in(latlon['lon'], [-3.7, 139, 2.1, 13.3]), "Empty or wrong longitude"
-    assert_in(latlon['lat'], [40, 35, 41.3, 52.5]), "Empty or wrong latitude"
+    assert_equals(int (world.expectedLatitude), latlon['lat'])
+    assert_equals(int (world.expectedLongitude), latlon['lon'])
+
 
 @step("I check if the status code of the page look by latitude and longitude is 200")
 def check_status_code(self):
@@ -69,14 +70,14 @@ def ask_for_weather_information_by_city(self):
 
 
 @step("I get the temperature look by city and country")
-def get_temperature_by_city(self):
+def get_temperature_look_by_city(self):
     temperature = world.page_info_by_country['main']
     temperatuce_farenhait = temperature['temp']
     assert temperatuce_farenhait != ""
 
 
 @step("I ask for weather information by latitude and longitude")
-def page_information_by_latlong(self):
+def ask_for_weather_information_by_latlong(self):
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
     world.page_info_by_latlon = weather2.getInformation(world.url)
 
