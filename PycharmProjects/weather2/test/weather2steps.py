@@ -32,7 +32,7 @@ def check_city_and_country_are_correct(self):
     assert world.expectedCountry in sys['country']
 
 
-@step("I check if the status code of the page look by city and country is 200")
+@step("I check if the status code is 200")
 def check_status_code(self):
     assert_equals(world.response.status_code, 200), "page not found"
 
@@ -58,20 +58,9 @@ def check_lat_and_long_are_correct(self):
     assert_equals(int(world.expectedLongitude), latlon['lon'])
 
 
-@step("I check if the status code of the page look by latitude and longitude is 200")
-def check_status_code(self):
-    assert_equals(world.response.status_code, 200), "page not found"
-
-
-@step("I ask for weather information by city and country")
-def ask_for_weather_information_by_city(self):
-    world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
-    world.page_info_by_country = weather2.getInformation(world.url)
-
-
 @step("I get the temperature look by city and country")
 def get_temperature_look_by_city(self):
-    temperature = world.page_info_by_country['main']
+    temperature = world.page_info['main']
     temperatuce_farenhait = temperature['temp']
     assert temperatuce_farenhait != ""
 

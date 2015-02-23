@@ -12,7 +12,6 @@ class weather2():
     """
 
     def getInformation(self, response):
-        world.response = response
         world.response = requests.get(response)
         return world.response.json()
 		
