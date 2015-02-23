@@ -8,19 +8,19 @@ Scenario: Check if a city and a country given are correct
     And the city is London and the country GB
     When I ask for the city and country name
     Then I check if the city and country are correct
-    And I check if the status code of the page look by city and country is 200
+    And I check if the status code is 200
 
 Scenario: Check if a latitude and longitude given are correct
     Given I access the url with http://api.openweathermap.org/data/2.5/weather
     And the latitude is 35 and the longitude 139
     When I ask for the latitude and longitude
     Then I check if the latitude and longitude are correct
-    And I check if the status code of the page look by latitude and longitude is 200
+    And I check if the status code is 200
 
 Scenario: Check if the temperature is correct given a city and a country
     Given I access the url with http://api.openweathermap.org/data/2.5/weather
     And the city is Madrid and the country ES
-    When I ask for weather information by city and country
+    When I ask for the city and country name
     Then I get the temperature look by city and country
 
 Scenario: Check if the temperature is correct given the latitude and longitude
