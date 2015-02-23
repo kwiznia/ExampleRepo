@@ -5,7 +5,7 @@ The other two check if the temperature is correct given the same parameters as b
 
 ##List of scenarios: 
 
-1. Scenario 1: This scenario check if a city and a country given are correct
-2. Scenario 2: This scenario check if a latitude and longitude given are correct
-3. Scenario 3: This scenario check if the temperature is correct given a city and a country
-4. Scenario 4: This scenario check if the temperature is correct given the latitude and longitude
+* Scenario 1: This scenario check if a city and a country given are correct
+* Scenario 2: This scenario check if a latitude and longitude given are correct
+* Scenario 3: This scenario check if the temperature is correct given a city and a country
+* Scenario 4: This scenario check if the temperature is correct given the latitude and longitude
