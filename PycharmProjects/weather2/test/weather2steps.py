@@ -12,7 +12,7 @@ def access_url(self, expectedUrl):
     assert_regexp_matches(world.expectedUrl, '^http'), "The URL is empty"
 
 
-@step('the city is ([^"]+) and the country ([^"]+)')
+@step('the city is (Madrid|London|Barcelona|Berlin) and the country (GB|ES|Germany)')
 def city_and_country(self, expectedCity, expectedCountry):
     world.expectedCity = expectedCity
     world.expectedCountry = expectedCountry
@@ -37,7 +37,7 @@ def check_status_code(self):
     assert_equals(world.response.status_code, 200), "page not found"
 
 
-@step('the latitude is ([^"]+) and the longitude ([^"]+)')
+@step("the latitude is (51.51|40.42|10.13) and the longitude (-0.13|3.7|-64.7)")
 def check_lat_and_long(self, expectedLatitude, expectedLongitude):
     world.expectedLatitude = expectedLatitude
     world.expectedLongitude = expectedLongitude
