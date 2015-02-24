@@ -12,7 +12,7 @@ def access_url(self, expectedUrl):
     assert_regexp_matches(world.expectedUrl, '^http'), "The URL is empty"
 
 
-@step("the city is (Madrid|London|Barcelona|Berlin) and the country (GB|ES|Germany)")
+@step('the city is (Madrid|London|Barcelona|Berlin) and the country (GB|ES|Germany)')
 def city_and_country(self, expectedCity, expectedCountry):
     world.expectedCity = expectedCity
     world.expectedCountry = expectedCountry
@@ -37,7 +37,7 @@ def check_status_code(self):
     assert_equals(world.response.status_code, 200), "page not found"
 
 
-@step("the latitude is (40|35|41.3|53.2) and the longitude (-3.7|139|2.1|13.3)")
+@step("the latitude is (51.51|40.42|10.13) and the longitude (-0.13|3.7|-64.7)")
 def check_lat_and_long(self, expectedLatitude, expectedLongitude):
     world.expectedLatitude = expectedLatitude
     world.expectedLongitude = expectedLongitude
@@ -54,8 +54,8 @@ def check_lat_and_long_are_correct(self):
     latlon = world.page_info['coord']
     assert latlon['lon'] != ""
     assert latlon['lat'] != ""
-    assert_equals(int(world.expectedLatitude), latlon['lat'])
-    assert_equals(int(world.expectedLongitude), latlon['lon'])
+    assert_equals(float(world.expectedLatitude), latlon['lat'])
+    assert_equals(float(world.expectedLongitude), latlon['lon'])
 
 
 @step("I get the temperature look by city and country")
