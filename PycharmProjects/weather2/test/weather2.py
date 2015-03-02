@@ -11,7 +11,6 @@ class weather2():
         return world.response.status_code
     """
 
-    def getInformation(self, response):
-        world.response = requests.get(response, headers={'Accept': 'application/json'})
+    def getInformation(self, url, format):
+        world.response = requests.get(url, headers={'Accept': format})
         return world.response.json()
-		

@@ -18,10 +18,10 @@ def city_and_country(self, expectedCity, expectedCountry):
     world.expectedCountry = expectedCountry
 
 
-@step("I ask for the city and country name")
-def ask_for_city_and_country(self):
+@step("I ask for the city and country name and the response is in (.*)")
+def ask_for_city_and_country(self, format):
     world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
-    world.page_info = weather2.getInformation(world.url)
+    world.page_info = weather2.getInformation(world.url, format)
 
 
 @step("I check if the city and country are correct")
@@ -43,10 +43,10 @@ def check_lat_and_long(self, expectedLatitude, expectedLongitude):
     world.expectedLongitude = expectedLongitude
 
 
-@step("I ask for the latitude and longitude")
-def ask_for_lat_and_long(self):
+@step("I ask for the latitude and longitude and the response is in (.*)")
+def ask_for_lat_and_long(self, format):
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    world.page_info = weather2.getInformation(world.url)
+    world.page_info = weather2.getInformation(world.url, format)
 
 
 @step("I check if the latitude and longitude are correct")
@@ -65,10 +65,10 @@ def get_temperature_look_by_city(self):
     assert temperatuce_farenhait != ""
 
 
-@step("I ask for weather information by latitude and longitude")
-def ask_for_weather_information_by_latlong(self):
+@step("I ask for weather information by latitude and longitude and the response is in (.*)")
+def ask_for_weather_information_by_latlong(self, format):
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    world.page_info_by_latlon = weather2.getInformation(world.url)
+    world.page_info_by_latlon = weather2.getInformation(world.url, format)
 
 
 @step("I get the temperature look by latitude and longitude")
@@ -76,4 +76,3 @@ def get_temperature_by_latlong(self):
     temperature = world.page_info_by_latlon['main']
     temperatuce_farenhait = temperature['temp']
     assert temperatuce_farenhait != ""
-	
