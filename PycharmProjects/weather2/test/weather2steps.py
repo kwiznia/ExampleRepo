@@ -20,16 +20,18 @@ def city_and_country(self, expectedCity, expectedCountry):
 
 @step("I ask for the city and country name and the response is in (.*)")
 def ask_for_city_and_country(self, format):
+    world.format = format
     world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
-    world.page_info = weather2.getInformation(world.url, format)
+    world.page_info = weather2.getInformation(world.url, world.format)
 
 
-@step("I check if the city and country are correct")
+@step("I check if the city and country are correct and in the correct format")
 def check_city_and_country_are_correct(self):
     sys = world.page_info['sys']
     assert sys != ""
     assert world.expectedCity in world.page_info['name']
     assert world.expectedCountry in sys['country']
+    assert_regexp_matches(world.response.headers['content-type'], world.format), "The format given is not correct"
 
 
 @step("I check if the status code is 200")
@@ -45,17 +47,20 @@ def check_lat_and_long(self, expectedLatitude, expectedLongitude):
 
 @step("I ask for the latitude and longitude and the response is in (.*)")
 def ask_for_lat_and_long(self, format):
+    world.format = format
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    world.page_info = weather2.getInformation(world.url, format)
+    world.page_info = weather2.getInformation(world.url, world.format)
 
 
-@step("I check if the latitude and longitude are correct")
+
+@step("I check if the latitude and longitude are correct and in the correct format")
 def check_lat_and_long_are_correct(self):
     latlon = world.page_info['coord']
     assert latlon['lon'] != ""
     assert latlon['lat'] != ""
     assert_equals(float(world.expectedLatitude), latlon['lat'])
     assert_equals(float(world.expectedLongitude), latlon['lon'])
+    assert_regexp_matches(world.response.headers['content-type'], world.format), "The format given is not correct"
 
 
 @step("I get the temperature look by city and country")
@@ -69,6 +74,7 @@ def get_temperature_look_by_city(self):
 def ask_for_weather_information_by_latlong(self, format):
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
     world.page_info_by_latlon = weather2.getInformation(world.url, format)
+    assert_regexp_matches(world.response.headers['content-type'], format), "The format given is not correct"
 
 
 @step("I get the temperature look by latitude and longitude")
