@@ -19,15 +19,15 @@ def city_and_country(self, expectedCity, expectedCountry):
 
 
 @step("I ask for the city and country name and the response is in (.*) or (.*)")
-def ask_for_city_and_country(self, format1, format2):
-    world.format1 = format1
-    world.format2 = format2
+def ask_for_city_and_country(self, formatJson, formatXml):
+    world.formatJson = formatJson
+    world.formatXml = formatXml
     world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
-    if world.format1 == 'json':
-        world.page_info = weather2.getInformation(world.url, world.format1)
+    if world.formatJson == 'json':
+        world.page_info = weather2.getInformation(world.url, world.formatJson)
     else:
-        if world.format2 == 'xml':
-            world.page_info = weather2.getInformation(world.url, world.format2)
+        if world.formatXml == 'xml':
+            world.page_info = weather2.getInformation(world.url, world.formatXml)
 
 
 @step("I check if the city and country are correct and in the correct format")
@@ -36,11 +36,11 @@ def check_city_and_country_are_correct(self):
     assert sys != ""
     assert world.expectedCity in world.page_info['name']
     assert world.expectedCountry in sys['country']
-    if world.format1 == 'json':
-        assert_regexp_matches(world.response.headers['content-type'], world.format1), "The format given is not correct"
+    if world.formatJson == 'json':
+        assert_regexp_matches(world.response.headers['content-type'], world.formatJson), "The format given is not correct"
     else:
-        if world.format2 == 'xml':
-            assert_regexp_matches(world.response.headers['content-type'], world.format2), "The format given is not correct"
+        if world.formatXml == 'xml':
+            assert_regexp_matches(world.response.headers['content-type'], world.formatXml), "The format given is not correct"
 
 @step("I check if the status code is 200")
 def check_status_code(self):
@@ -54,15 +54,15 @@ def check_lat_and_long(self, expectedLatitude, expectedLongitude):
 
 
 @step("I ask for the latitude and longitude and the response is in (.*) or (.*)")
-def ask_for_lat_and_long(self, format1, format2):
-    world.format1 = format1
-    world.format2 = format2
+def ask_for_lat_and_long(self, formatJson, formatXml):
+    world.formatJson = formatJson
+    world.formatXml = formatXml
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    if world.format1 == 'json':
-        world.page_info = weather2.getInformation(world.url, world.format1)
+    if world.formatJson == 'json':
+        world.page_info = weather2.getInformation(world.url, world.formatJson)
     else:
-        if world.format2 == 'xml':
-            world.page_info = weather2.getInformation(world.url, world.format2)
+        if world.formatXml == 'xml':
+            world.page_info = weather2.getInformation(world.url, world.formatXml)
 
 
 @step("I check if the latitude and longitude are correct and in the correct format")
@@ -72,11 +72,11 @@ def check_lat_and_long_are_correct(self):
     assert latlon['lat'] != ""
     assert_equals(float(world.expectedLatitude), latlon['lat'])
     assert_equals(float(world.expectedLongitude), latlon['lon'])
-    if world.format1 == 'json':
-        assert_regexp_matches(world.response.headers['content-type'], world.format1), "The format given is not correct"
+    if world.formatJson == 'json':
+        assert_regexp_matches(world.response.headers['content-type'], world.formatJson), "The format given is not correct"
     else:
-        if world.format2 == 'xml':
-            assert_regexp_matches(world.response.headers['content-type'], world.format2), "The format given is not correct"
+        if world.formatXml == 'xml':
+            assert_regexp_matches(world.response.headers['content-type'], world.formatXml), "The format given is not correct"
 
 
 @step("I get the temperature look by city and country")
