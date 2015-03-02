@@ -6,7 +6,7 @@ Feature: Check if the weather service works properly
 Scenario Outline: Check if a city and and country given are correct
     Given I access the url with http://api.openweathermap.org/data/2.5/weather
     And the city is <city> and the country <country>
-    When I ask for the city and country name and the response is in application/json
+    When I ask for the city and country name and the response is in json or xml
     Then I check if the city and country are correct and in the correct format
     And I check if the status code is 200
 
@@ -19,7 +19,7 @@ Scenario Outline: Check if a city and and country given are correct
 Scenario Outline: Check if a latitude and longitude given are correct
     Given I access the url with http://api.openweathermap.org/data/2.5/weather
     And the latitude is <latitude> and the longitude <longitude>
-    When I ask for the latitude and longitude and the response is in application/json
+    When I ask for the latitude and longitude and the response is in json or xml
     Then I check if the latitude and longitude are correct and in the correct format
     And I check if the status code is 200
 
@@ -32,7 +32,7 @@ Scenario Outline: Check if a latitude and longitude given are correct
 Scenario Outline: Check if the temperature is correct given a city and a country
     Given I access the url with http://api.openweathermap.org/data/2.5/weather
     And the city is <city> and the country <country>
-    When I ask for the city and country name and the response is in application/json
+    When I ask for the city and country name and the response is in json or xml
     Then I get the temperature look by city and country
 
   Examples:
@@ -44,7 +44,7 @@ Scenario Outline: Check if the temperature is correct given a city and a country
 Scenario Outline: Check if the temperature is correct given the latitude and longitude
     Given I access the url with http://api.openweathermap.org/data/2.5/weather
     And the latitude is <latitude> and the longitude <longitude>
-    When I ask for weather information by latitude and longitude and the response is in application/json
+    When I ask for the latitude and longitude and the response is in json or xml
     Then I get the temperature look by latitude and longitude
 
   Examples:

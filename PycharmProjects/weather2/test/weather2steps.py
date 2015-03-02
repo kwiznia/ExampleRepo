@@ -18,11 +18,16 @@ def city_and_country(self, expectedCity, expectedCountry):
     world.expectedCountry = expectedCountry
 
 
-@step("I ask for the city and country name and the response is in (.*)")
-def ask_for_city_and_country(self, format):
-    world.format = format
+@step("I ask for the city and country name and the response is in (.*) or (.*)")
+def ask_for_city_and_country(self, format1, format2):
+    world.format1 = format1
+    world.format2 = format2
     world.url = world.expectedUrl + "?q=" + world.expectedCity + "," + world.expectedCountry
-    world.page_info = weather2.getInformation(world.url, world.format)
+    if world.format1 == 'json':
+        world.page_info = weather2.getInformation(world.url, world.format1)
+    else:
+        if world.format2 == 'xml':
+            world.page_info = weather2.getInformation(world.url, world.format2)
 
 
 @step("I check if the city and country are correct and in the correct format")
@@ -31,8 +36,11 @@ def check_city_and_country_are_correct(self):
     assert sys != ""
     assert world.expectedCity in world.page_info['name']
     assert world.expectedCountry in sys['country']
-    assert_regexp_matches(world.response.headers['content-type'], world.format), "The format given is not correct"
-
+    if world.format1 == 'json':
+        assert_regexp_matches(world.response.headers['content-type'], world.format1), "The format given is not correct"
+    else:
+        if world.format2 == 'xml':
+            assert_regexp_matches(world.response.headers['content-type'], world.format2), "The format given is not correct"
 
 @step("I check if the status code is 200")
 def check_status_code(self):
@@ -45,12 +53,16 @@ def check_lat_and_long(self, expectedLatitude, expectedLongitude):
     world.expectedLongitude = expectedLongitude
 
 
-@step("I ask for the latitude and longitude and the response is in (.*)")
-def ask_for_lat_and_long(self, format):
-    world.format = format
+@step("I ask for the latitude and longitude and the response is in (.*) or (.*)")
+def ask_for_lat_and_long(self, format1, format2):
+    world.format1 = format1
+    world.format2 = format2
     world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    world.page_info = weather2.getInformation(world.url, world.format)
-
+    if world.format1 == 'json':
+        world.page_info = weather2.getInformation(world.url, world.format1)
+    else:
+        if world.format2 == 'xml':
+            world.page_info = weather2.getInformation(world.url, world.format2)
 
 
 @step("I check if the latitude and longitude are correct and in the correct format")
@@ -60,7 +72,11 @@ def check_lat_and_long_are_correct(self):
     assert latlon['lat'] != ""
     assert_equals(float(world.expectedLatitude), latlon['lat'])
     assert_equals(float(world.expectedLongitude), latlon['lon'])
-    assert_regexp_matches(world.response.headers['content-type'], world.format), "The format given is not correct"
+    if world.format1 == 'json':
+        assert_regexp_matches(world.response.headers['content-type'], world.format1), "The format given is not correct"
+    else:
+        if world.format2 == 'xml':
+            assert_regexp_matches(world.response.headers['content-type'], world.format2), "The format given is not correct"
 
 
 @step("I get the temperature look by city and country")
@@ -70,15 +86,8 @@ def get_temperature_look_by_city(self):
     assert temperatuce_farenhait != ""
 
 
-@step("I ask for weather information by latitude and longitude and the response is in (.*)")
-def ask_for_weather_information_by_latlong(self, format):
-    world.url = world.expectedUrl + "?lat=" + world.expectedLatitude + "&lon=" + world.expectedLongitude
-    world.page_info_by_latlon = weather2.getInformation(world.url, format)
-    assert_regexp_matches(world.response.headers['content-type'], format), "The format given is not correct"
-
-
 @step("I get the temperature look by latitude and longitude")
 def get_temperature_by_latlong(self):
-    temperature = world.page_info_by_latlon['main']
+    temperature = world.page_info['main']
     temperatuce_farenhait = temperature['temp']
     assert temperatuce_farenhait != ""
